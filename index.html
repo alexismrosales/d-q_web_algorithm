@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="jquery.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+    <title>Proyecto Final</title>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="contenedor">
+             <!--Se me ocurria poner el logo ahi pero no carga xd-->
+            <nav class="nav">
+                <a href="index.html"><img src="logo.png" class="hero-logo"> </a>
+                <a href="index.html" class="nav__items">Inicio</a>
+                <a href="#fuerza_bruta_id" class="nav__items">Solución con fuerza bruta</a>
+                <a href="#dyv_id" class="nav__items">Solución DyV</a>
+                <i class="fa-solid fa-bars" id="icon_menu"></i>    
+            </nav>
+           
+            <section class="hero__container">
+                <div class="hero__texts">
+                    <h1 class="hero__title">PREFIJO COMÚN MÁS LARGO</h1>
+                    <h2 class="hero__subtitle" align="justify">
+                        Soluciones propuestas al problema aplicando los métodos de solución con "Fuerza bruta" y la técnica "Divide y vencerás (Divide and Conquer)".
+                    </h2>
+                    <p>Elaborado por el equipo Chilaquiles Rojos.</p>
+                </div>
+            </section>
+        </div>
+        <div class="hero__wave" style=" overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" 
+            style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 
+            L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg></div>
+    </header>
+
+    <main>
+        <section class="presentation container">
+            <img src="img/long.svg" alt="imagen" class="presentation__picture">
+            <h2 class="subtitle">Solución al problema</h2>
+            <div class="presentation__copy">
+                    <p id="parrafo" class="about__paragraph">
+                        Dado un conjunto de cadenas S, escriba un programa para encontrar la cadena de prefijo común más larga, que es el prefijo de todas las cadenas de dados.
+                • El prefijo común más largo para un par de cadenas S1 y S2 es la cadena más larga, que es el prefijo de S1 y S2.
+• Todas las entradas dadas están en letras minúsculas az.
+• Si no hay un prefijo común, devuelve "-1"
+PREFIJO:  Letras o palabras que se añaden al inicio de otras palabras para formar palabras nuevas.
+PREFIJO COMÚN: Letras o palabras que se encuentran al inicio de todas las palabras dadas.
+                    </p>
+            </div>
+        </section>
+        <section class="about container">
+            <div class="about__texts">
+                <h2 class="subtitle">Solución con Fuerza Bruta</h2> 
+                <p class="about__paragraph" id="parrafo">
+                    Comparar la primera letra de la primera cadena con la primera letra de la segunda cadena, si coinciden, se compara con la primera letra de la tercer cadena, así sucesivamente hasta acabar con la primera letra de todas las cadenas, si coincide en todas ellas, se almacena dicha letra en un arreglo que contendrá el prefijo común más largo, posteriormente pasa a comparar la segunda letra de la primera cadena, con la segunda letra de la segunda cadena, repitiendo el mismo proceso anterior.
+Se detiene cuando encuentra 2 letras que no son iguales, por lo que retorna el arreglo contenedor del prefijo común más largo.
+ 
+ 
+                </p>          
+             </div>
+
+             <figure class="about__img">
+                <img src="img/fuerzab.svg" alt="imagen2" class="about__picture">
+             </figure>
+             <div class="about__texts">
+                <h2 class="subtitle"> Solución con Divide y Vencerás</h2> 
+                <p class="about__paragraph" id="parrafo">
+                    Divide la cantidad de cadenas ingresadas en 2 (no necesariamente a la mitad), posteriormente, continúa dividiendo en 2 hasta que se tenga sólo una cadena, retorna la misma cadena y se compara con la cadena sucesora, retorna el prefijo común de ambas, éste prefijo se compara con la cadena siguiente, y así sucesivamente, esto aplica para ambos lados divididos (izquierda y derecha), con esto, se obtiene el prefijo común más largo.
+                </p>          
+             </div>
+             <figure class="about__img about__img--left">
+                <img src="img/dyv.svg" alt="imagen2" class="about__picture">
+             </figure>
+        </section>
+        
+        <section class="about-us">
+            <div class="contenedor1">
+                <h2 class="titulo">Maneras en las que podemos resolver este algoritmo</h2><!--Se puede poner otro subtitulo xd-->
+                <div class="contenido-articulo">
+                    <div class="articulo">
+                        <i class="fa-solid fa-hand-fist"></i>
+                        <h3>Fuerza Bruta</h3>
+                        <p class="about-us_paragraph" id="parrafo">Una solución simple es considerar cada cadena y calcular su prefijo común más largo con el prefijo común más largo de las cadenas procesadas hasta el momento. La complejidad temporal de esta solución es O(N.M), dónde N es el número total de palabras y M es la longitud máxima de una palabra.</p>
+                        <a href="#fuerza_bruta_id">Ir a la solución</a>
+                    </div>
+                    <div class="articulo">
+                        <h2>Pseudocodigo</h2>
+                        <!-- <i class="fa-solid fa-hand-fist"></i>
+                        <h3>Divide y vencerás</h3> -->
+                        <p class="about-us_paragraph pseudocodigo">
+                            <span id="span_algoritmo">Algoritmo</span> PrefijoComun{Cadena_1,Cadena_2}<br></br>
+                                prefijo = ""<br></br>
+                                n = tamaño{Cadena_1}, i=0<br></br>
+                                <span id="span_algoritmo">Si</span> tamaño{Cadena_2} < n <span id="span_algoritmo">entonces</span><br></br>
+                                        n = tamaño{cadena_2}<br></br>
+                                <span id="span_algoritmo">Fin Si</span><br></br>
+                                <span id="span_algoritmo">Mientras</span> i<n & Cadena_1[i] = Cadena_2[i]  <span id="span_algoritmo">hacer</span><br></br>
+                                    prefijo += Cadena_1[i]<br></br>
+                                    i++<br></br>
+                                 <span id="span_algoritmo">Fin Mientras</span> <br></br>
+                                 <span id="span_algoritmo">Si</span> prefijo = "" <span id="span_algoritmo">entonces</span> <br></br>
+                                       <span id="span_algoritmo">regresa</span> "-1"<br></br>
+                                <span id="span_algoritmo">Fin Si</span><br></br>
+                                <span id="span_algoritmo">Regresar Prefijo</span><br></br>
+                            <span id="span_algoritmo">Algoritmo</span> PrefijoComunMasLargo{A, inicio, final} <br><br>
+                                <span id="span_algoritmo">Si</span> inicio = final <span id="span_algoritmo">entonces</span> <br><br>
+                                        <span id="span_algoritmo">Regresar</span> A[final] <br><br>
+                                <span id="span_algoritmo">Fin Si</span><br><br>
+                                mitad = inicio + {final-inicio}/2 <br><br>
+                                Cadena_1 = PrefijoComunMasLargo{A,inicio,mitad}<br><br>
+                                Cadena_2 = PrefijoComunMasLargo{A, mitad+1, final}<br><br>
+                                <span id="span_algoritmo">Regresar</span> PrefijoComun{Cadena_1, Cadena_2}
+                            <span id="span_algoritmo">Fin Algoritmo</span>      
+                        </p>
+                    </div>
+                    <div class="articulo">
+                        <i class="fa-solid fa-hand-fist"></i>
+                        <h3>Divide y vencerás</h3>
+                        <p class="about-us_paragraph" id="parrafo">También podemos usar el Divide y vencerás técnica para encontrar el prefijo común más largo (LCP). Como todos los algoritmos de divide y vencerás, la idea es dividir las cadenas en dos conjuntos más pequeños y luego procesar recursivamente esos conjuntos. </p>
+                        <a href="#dyv_id">Ir a la solución</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <section class="fuerza_bruta container" id="fuerza_bruta_id">
+            <div class="textos_fb">
+                <h2 class="subtitle">Solución con la técnica Fuerza Bruta</h2>
+                <div class="about__paragraph">
+                    <p class="fuerza_bruta_paragraph" id="parrafo">Dadas n cadenas, se compara la primera letra de la primera cadena con la primera letra de la segunda cadena, si son iguales, prosigue a comparar con la primera letra de la tercera cadena, si coinciden, se repite el proceso para el resto de las cadenas, en caso de que la primera letra sea igual en las n cadenas,se almacena dicha letra en un arreglo que contiene el prefijo común, continua comparando y repitiendo el mismo proceso anterior, pero ahora, con la segunda letra de cada cadena, si ésta nuevamente es igual, prosigue con la tercera letra, luego con la cuarta, y así sucesivamente hasta no encontrar coincidencias o haber iterado sobre la cadena de menor tamaño, retornando el arreglo contenedor del prefijo común más largo.</p>
+                </div>
+                </p>
+                </div>
+            </div>
+        </section>
+          <!--INICIA ANIMACION FB-->
+          <!--TERMINA ANIMACION FB-->
+
+        <section class="dyv container" id="dyv_id">
+            <div class="textos_dyv">
+                <h2 class="subtitle">Solución con la técnica Divide y Vencerás</h2>
+                <p class="about__paragraph" id="parrafo">Dadas n cadenas, se divide en 2, del lado izquierdo se encuentran las cadenas que van desde 0 hasta mitad, del lado derecho, las cadenas que van desde mitad+1 hasta n-1, repitiéndose dicho proceso hasta que el lado izquierdo y derecho contengan sólo una cadena, posteriormente ambos lados regresan esa cadena, se comparan ambas y se retorna el prefijo común de las dos, luego, este prefijo se compara con la siguiente cadena, obteniendo un nuevo prefijo común, repitiéndose todo lo anterior, es decir, se hace una comparación en pares, hasta que se haya hecho la comparación con las n cadenas, al final, sólo se retorna el arreglo que contiene el prefijo común más largo (si es que existe).
+                </p>
+                <h3 class="subtitle">Introduzca el tamaño del arreglo</h3>
+                <input type="number" id="tam_dyv" class="inputsC" min="3" max="6" >
+                <div class="inputs_btn">
+                <button onclick="generarInputsDYV()" type="button" class="boton">Ingresar</button>
+                <label class="label_dyv" id="label_dyvID">El número de cadenas no puede ser mayor a 6</label>
+                <br>
+            </div>
+            </div>
+            <div class="inputs_dyv" id="inputs_dyvID"></div>
+            <button onclick="arregloCadenasDYV()" type="button" class="boton" id="iniciar_dyv">Iniciar animación</button>
+        </section>
+        <!--Animacion-->
+        <section class="animacion_dyv" id="animacion_dyvID"></section>
+        <section class="animacion_dyv_prefijo" id="animacion_dyvID">
+            <div class="danimacion_dyv_prefijo" id="danimacion_dyv_prefijo_id"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="partFooter">
+            <h4>Servicios</h4>
+            <a href="#">¿Quienes Somos?</a>
+            <a href="">Mas sobre nosotros</a>
+            <a href="">Mas sobre nuestros</a>
+        </div>
+        <div class="partFooter">
+            <h4>Redes Sociales</h4>
+             <div class="footer__icons">
+                <span class="footer__container-icons">
+                    <a class="fab fa-brands fa-facebook footer__icon" href="#"></a>
+                </span>
+                <span class="footer__container-icons ">
+                    <a class="fab fa-brands fa-github footer__icon" href="#"></a>
+                </span>
+                <span class="footer__container-icons">
+                    <a class="fab fa-brands fa-linkedin footer__icon" href="#"></a>
+                </span>
+            </div>
+        </div>
+    </footer>
+    <!--Scripts-->
+        <!--Script para la animación-->
+    <script src="scripts/dyv_animacion.js"></script>
+    <script src="scripts/arreglos_dyv.js"></script>
+
+        <!--Scripts para las soluciones-->
+    <script src="scripts/algoritmo.js"></script>
+    <script src="scripts/main_dyv.js"></script>
+    <script src="scripts/fb_input.js"></script>
+    
+</body>
+</html>

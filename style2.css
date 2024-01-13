@@ -1,0 +1,19 @@
+.array-element{
+    display: flex;
+  }
+  .array-element > p{
+    padding: 10px;
+    border: 1px solid blueviolet;
+  }
+  
+  .wrapper{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  #sort,
+  #unsort {
+    text-decoration: none;
+    border-radius: 50px;
+    background-color: blueviolet;
+  }

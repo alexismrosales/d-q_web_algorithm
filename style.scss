@@ -1,0 +1,50 @@
+main {
+  position: relative;
+  @include center();
+}
+/* ----------------------------------------------------------------- */
+/* Animacion dyv */
+/* ----------------------------------------------------------------- */
+
+section.animacion_dyv {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  div.contenedor-arreglos {
+    display: inline-flex;
+    flex: 0 0 auto;
+    position: absolute;
+
+    div.elemento-cadena {
+      height: 40px;
+      width: 40px;
+      margin: 0 1px 0 1px;
+      background: #018ABE;
+      text-align: center;
+    
+
+      p {
+        font-size: 14px;
+        line-height: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 570px) {
+  section.animacion_dyv {
+    div.contenedor-arreglos {
+      div.elemento-cadena {
+        width: 30px;
+        height: 30px;
+        p {
+          font-size: 12px;
+          line-height: 8px;
+        }
+      }
+    }
+  }
+}
